@@ -5,7 +5,7 @@ class Lib_inspector:
     def __init__(self):
         self.version = "1.0.0"
 
-    def inspect(self, lib_path, sive_ = True):
+    def inspect(self, lib_path, sieve_ = True):
         result = subprocess.check_output(["nm", "-D", "--defined-only", lib_path]).decode()
         funcs = []
         
@@ -16,7 +16,7 @@ class Lib_inspector:
             if match:
                 func_name = match.group(1)
                 
-                if not sive_ or not func_name.startswith('_'):
+                if not sieve_ or not func_name.startswith('_'):
                     funcs.append(func_name)
         
         return sorted(funcs)

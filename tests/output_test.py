@@ -43,13 +43,13 @@ class TestLibInspector(unittest.TestCase):
 
     def test_functional_inspection(self):
         """Verify extraction and alphabetical sorting of public symbols."""
-        results = self.inspector.inspect(self.lib_path, sive_=True)
+        results = self.inspector.inspect(self.lib_path, sieve_=True)
         expected = ["a_func", "z_func"]
         self.assertEqual(results, expected)
 
     def test_sive_filter_off(self):
         """Verify that underscores are included when sive_ is False."""
-        results = self.inspector.inspect(self.lib_path, sive_=False)
+        results = self.inspector.inspect(self.lib_path, sieve_=False)
         self.assertIn("_hidden_func", results)
 
     def test_invalid_path(self):
